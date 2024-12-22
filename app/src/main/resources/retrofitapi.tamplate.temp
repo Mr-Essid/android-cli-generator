@@ -1,0 +1,31 @@
+package {{packageName}}
+
+import retrofit2.Response
+import retrofit2.http.Body
+import retrofit2.http.GET
+import retrofit2.http.Header
+import retrofit2.http.POST
+import retrofit2.http.PUT
+import retrofit2.http.Path
+import {{packageName}}.models.{{modelName}}
+import {{packageName}}.models.Message
+
+
+interface {{modelName}}Api {
+
+    @GET("/{{modelName}}")
+    fun get{{modelName}}List({{authentication}}): Response<List<{{modelName}}>?>
+
+    @GET("/{{modelName}}/{id}")
+    fun get{{modelName}}(@Path("id") id : String, {{authentication}}): Response<{{modelName}}?>
+
+    @POST("/{{modelName}}")
+    fun add{{modelName}}(@Body model: {{modelName}}, {{authentication}}): Response<{{modelName}}?>
+    
+    @PUT("/{{modelName}}")
+    fun update{{modelName}}(@Body model: {{modelName}}, {{authentication}}): Response<{{modelName}}?>
+    
+    @DELETE("/{{modelName}}/{id}")
+    fun get{{modelName}}List(@Path("id") id : String, {{authentication}}): Response<Message?>
+
+} 
